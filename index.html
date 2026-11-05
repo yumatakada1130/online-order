@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>オンライン注文</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:#f8fafc;color:#0f172a}.wrap{max-width:900px;margin:auto;padding:16px}.head{display:flex;gap:12px;align-items:center;margin-bottom:16px}.icon{background:#2563eb;color:#fff;padding:12px;border-radius:16px;font-size:22px}.card{background:#fff;border-radius:18px;padding:16px;margin-bottom:16px;box-shadow:0 1px 5px #0001}.delivery{background:#eff6ff;color:#1e3a8a;border:1px solid #dbeafe}.product{display:grid;grid-template-columns:minmax(0,1fr) 136px;gap:8px;align-items:center;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:8px 0}.controls{display:grid;grid-template-columns:40px 48px 40px;gap:4px;align-items:center}.controls button{height:40px;border-radius:9px;border:1px solid #cbd5e1;background:#fff;font-size:20px}.controls .plus{background:#2563eb;color:#fff;border:0}.qty{text-align:center;font-weight:700}.sticky{position:sticky;bottom:10px;border:1px solid #e2e8f0;box-shadow:0 4px 15px #0002}.send,.back,.print{width:100%;padding:13px;border:0;border-radius:12px;font-weight:700;font-size:16px}.send,.back{background:#2563eb;color:#fff}.send:disabled{background:#cbd5e1}.print{background:#fff;color:#1d4ed8;border:2px solid #2563eb;margin-bottom:10px}.row{display:flex;justify-content:space-between;gap:12px}.red{color:#dc2626;font-weight:700;font-size:14px}.notice{font-size:13px;color:#475569;margin-top:8px}.complete{position:fixed;inset:0;z-index:100;background:#f8fafc;overflow-y:auto}.complete-inner{max-width:600px;margin:0 auto;padding:16px}.center{text-align:center}.line{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #e2e8f0;padding:9px 0}.label{font-size:12px;color:#64748b;margin-top:14px}.blue{color:#1d4ed8;font-size:20px;font-weight:700}.ok{color:#15803d;font-weight:700}.warn{color:#b45309;font-weight:700}select{width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;background:#fff}@media(max-width:520px){.product{grid-template-columns:minmax(0,1fr) 124px}.controls{grid-template-columns:38px 40px 38px}.controls button{height:38px}}@media print{body{background:#fff}.no-print{display:none!important}.complete{position:static;overflow:visible;background:#fff}.complete-inner{padding:0}.card{box-shadow:none}.print-card{padding:0}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:#f8fafc;color:#0f172a}.wrap{max-width:900px;margin:auto;padding:16px}.head{display:flex;gap:12px;align-items:center;margin-bottom:16px}.icon{background:#2563eb;color:#fff;padding:12px;border-radius:16px;font-size:22px}.card{background:#fff;border-radius:18px;padding:16px;margin-bottom:16px;box-shadow:0 1px 5px #0001}.delivery{background:#eff6ff;color:#1e3a8a;border:1px solid #dbeafe}.product{display:grid;grid-template-columns:minmax(0,1fr) 136px;gap:8px;align-items:center;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:8px 0}.controls{display:grid;grid-template-columns:40px 48px 40px;gap:4px;align-items:center}.controls button{height:40px;border-radius:9px;border:1px solid #cbd5e1;background:#fff;font-size:20px}.controls .plus{background:#2563eb;color:#fff;border:0}.qty{text-align:center;font-weight:700}.sticky{position:sticky;bottom:10px;border:1px solid #e2e8f0;box-shadow:0 4px 15px #0002}.send,.back,.print,.edit{width:100%;padding:13px;border:0;border-radius:12px;font-weight:700;font-size:16px}.send,.back{background:#2563eb;color:#fff}.edit{background:#fff;color:#334155;border:1px solid #cbd5e1;margin-top:10px}.send:disabled{background:#cbd5e1}.print{background:#fff;color:#1d4ed8;border:2px solid #2563eb;margin-bottom:10px}.row{display:flex;justify-content:space-between;gap:12px}.red{color:#dc2626;font-weight:700;font-size:14px}.notice{font-size:13px;color:#475569;margin-top:8px}.complete{position:fixed;inset:0;z-index:100;background:#f8fafc;overflow-y:auto}.complete-inner{max-width:600px;margin:0 auto;padding:16px}.center{text-align:center}.line{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #e2e8f0;padding:9px 0}.label{font-size:12px;color:#64748b;margin-top:14px}.blue{color:#1d4ed8;font-size:20px;font-weight:700}.ok{color:#15803d;font-weight:700}.warn{color:#b45309;font-weight:700}select{width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;background:#fff}@media(max-width:520px){.product{grid-template-columns:minmax(0,1fr) 124px}.controls{grid-template-columns:38px 40px 38px}.controls button{height:38px}}@media print{body{background:#fff}.no-print{display:none!important}.complete{position:static;overflow:visible;background:#fff}.complete-inner{padding:0}.card{box-shadow:none}.print-card{padding:0}}
 </style>
 </head>
 <body>
@@ -14,38 +14,39 @@
 const stores=["カネマン 盛岡南777","カネマン 津志田","カネマン MPlus+","カネマン アズ水沢","カネマン 奥州1111","カネマン 金ケ崎","カネマン 大船渡","カネマン 陸前高田","カネマン ルート45"];
 const names=["神戸居留地うららか天然水ﾍﾟｯﾄ 550ML","神戸茶房緑茶(25)ﾍﾟｯﾄ 500ml","神戸茶房麦茶ﾍﾟｯﾄ 500ml","神戸居留地炭酸水ﾚﾓﾝ(18)ﾍﾟｯﾄ 500ml","神戸居留地炭酸水(18)ﾍﾟｯﾄ 500ml","神戸居留地ｻｲﾀﾞｰｾﾞﾛ(20)缶 350ml","神戸居留地LASｺｰﾗ(20)缶 350ml","神戸居留地LASｺｰﾗｾﾞﾛ(20)缶 350ml","神戸居留地LASﾚﾓﾝﾗｲﾑ(20)缶 350ml","神戸居留地LASｼﾞﾝｼﾞｬｰｴｰﾙ(20)缶 350ml","ﾌｪﾘｰﾁｪﾒﾛﾝｸﾘｰﾑｿｰﾀﾞ缶 350ml","ﾌｪﾘｰﾁｪﾎﾜｲﾄｸﾘｰﾑｿｰﾀﾞ缶 350ml","神戸茶房緑茶(25)缶 340g","神戸居留地うららか天然水ﾍﾟｯﾄ 300ml","神戸居留地ｶﾞﾂﾝｺﾞｰﾙﾄﾞ(21)缶 185ml","神戸居留地ﾌﾞﾚﾝﾄﾞｺｰﾋｰ缶 185G","神戸居留地微糖ｺｰﾋｰ(20)缶 185G","神戸居留地ﾌﾞﾗｯｸｺｰﾋｰ(20)缶 185G","神戸居留地ｶﾌｪｵﾚ(20)缶 185G","ｶﾌｪﾄﾞﾘｯﾌﾟ微糖ｺｰﾋｰ缶 185G","ｶﾌｪﾄﾞﾘｯﾌﾟﾌﾞﾗｯｸｺｰﾋｰ缶 185G","ｶﾌｪﾄﾞﾘｯﾌﾟｶﾌｪｵﾚ缶 185G","ｶﾌｪﾄﾞﾘｯﾌﾟﾌﾞﾚﾝﾄﾞｺｰﾋｰ缶 185G","神戸居留地ｱｯﾌﾟﾙ100%(新)缶 185G","神戸居留地ｸﾞﾚｰﾌﾟ100%(新)缶 185G","神戸居留地ｱｾﾛﾗ(20)缶 185g","神戸居留地すっきりｵﾚﾝｼﾞ(新)缶 185g","神戸居留地すっきりｱｯﾌﾟﾙ(新)缶 185g","神戸居留地はちみつﾚﾓﾝ(新)缶 185g"];
 const holidays=new Set(["2026-11-03","2026-11-23","2027-01-01","2027-01-11","2027-02-11","2027-02-23","2027-03-21","2027-03-22","2027-04-29","2027-05-03","2027-05-04","2027-05-05","2027-07-19","2027-08-11","2027-09-20","2027-09-23","2027-10-11","2027-11-03","2027-11-23"]);
-const qty={};let customer="",completed=null,sending=false;
+const FORM_ID="qsgivb8tzus";
+const qty={};let customer="",completed=null,sending=false,sendError="";
 const key=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 const fmt=d=>new Date(d).toLocaleDateString("ja-JP",{year:"numeric",month:"long",day:"numeric",weekday:"short"});
 function deliveryDate(){const d=new Date();let n=0;while(n<3){d.setDate(d.getDate()+1);if(d.getDay()!==0&&d.getDay()!==6&&!holidays.has(key(d)))n++;}return d}
 const delivery=deliveryDate();
 function total(){return Object.values(qty).reduce((a,b)=>a+b,0)}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
-function openOrderMail(order){
-  const subject=`【オンライン注文】${order.customer} 注文受付`;
-  const body=[
-    "オンライン注文を受け付けました。",
-    "",
-    `店舗名：${order.customer}`,
-    `注文日：${fmt(order.orderedAt)}`,
-    `納品予定日：${fmt(order.delivery)}`,
-    "",
-    "【注文内容】",
-    ...order.detail.map(x=>`${x.name}　${x.qty}ケース`),
-    "",
-    `合計：${order.count}ケース`
-  ].join("\r\n");
-  const url=`mailto:yuma@accele.co.jp?cc=${encodeURIComponent("morioka_saitou@marudai-g.co.jp")}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href=url;
-}
-
 function render(){
- if(completed){document.getElementById("app").innerHTML=`<div class="complete"><div class="complete-inner"><div class="card print-card"><div class="center"><h1>注文控え</h1><p class="ok no-print">注文を受け付けました。</p><p class="notice no-print">メールアプリが開きます。内容を確認して、メールアプリ側で送信してください。</p></div><div class="card"><div class="label">店舗名</div><b>${esc(completed.customer)}</b><div class="label">注文日</div><b>${fmt(completed.orderedAt)}</b><div class="label">注文商品</div>${completed.detail.map(x=>`<div class="line"><span>${esc(x.name)}</span><b>${x.qty}ケース</b></div>`).join("")}<div class="row" style="margin-top:14px"><span>合計</span><b>${completed.count}ケース</b></div><div class="label">納品予定日</div><div class="blue">${fmt(completed.delivery)}</div></div><button class="print no-print" onclick="window.print()">注文控えを印刷・PDF保存</button><button class="back no-print" onclick="completed=null;render()">注文画面に戻る</button></div></div></div>`;return}
- const c=total();document.getElementById("app").innerHTML=`<div class="wrap"><div class="head"><div class="icon">🛒</div><div><h1 style="margin:0">オンライン注文</h1><div>ケース数を入力して注文</div></div></div><div class="card delivery"><b>ご注文時点の納品予定日</b><div style="font-size:21px;font-weight:700">${fmt(delivery)}</div><small>注文日は数えず、土日祝日を除く中2営業日</small></div><div class="card"><b>店舗名</b><select id="store"><option value="">店舗を選択してください</option>${stores.map(s=>`<option value="${esc(s)}" ${s===customer?"selected":""}>${esc(s)}</option>`).join("")}</select></div><div class="card"><h2>商品を選ぶ</h2>${names.map((n,i)=>`<div class="product"><div>${esc(n)}</div><div class="controls"><button onclick="change(${i},-1)">−</button><div class="qty">${qty[i]||0}</div><button class="plus" onclick="change(${i},1)">＋</button></div></div>`).join("")}<div class="card sticky"><div class="row"><span>注文ケース数</span><b>${c}ケース</b></div>${c<20?`<div class="red">20ケース以上から注文できます（あと${20-c}ケース）</div>`:""}<button id="sendBtn" class="send" ${!customer||c<20||sending?"disabled":""} onclick="submitOrder()">${sending?"メール準備中…":"メールを開いて注文"}</button><div class="notice">注文内容のみ2名へ通知します。仕入・原価・販売大臣NXデータは社外担当者へ送信しません。</div></div></div></div>`;
+ if(confirming){document.getElementById("app").innerHTML=`<div class="complete"><div class="complete-inner"><div class="card"><div class="center"><h1>注文内容の確認</h1><p>この内容で注文しますか？</p></div><div class="label">店舗名</div><b>${esc(confirming.customer)}</b><div class="label">納品予定日</div><b>${fmt(confirming.delivery)}</b><div class="label">注文商品</div>${confirming.detail.map(x=>`<div class="line"><span>${esc(x.name)}</span><b>${x.qty}ケース</b></div>`).join("")}<div class="row" style="margin-top:14px"><span>合計</span><b>${confirming.count}ケース</b></div><button class="send" style="margin-top:18px" onclick="submitConfirmedOrder()" ${sending?"disabled":""}>${sending?"送信中…":"注文を送信"}</button>${sendError?`<div class="red" style="margin-top:10px">${esc(sendError)}</div>`:""}<button class="edit" onclick="confirming=null;sendError='';render()" ${sending?"disabled":""}>注文内容を修正</button></div></div></div>`;return}
+ if(completed){document.getElementById("app").innerHTML=`<div class="complete"><div class="complete-inner"><div class="card print-card"><div class="center"><h1>注文控え</h1><p class="ok no-print">注文を受け付けました。</p><p class="notice no-print">注文データの送信が完了しました。</p></div><div class="card"><div class="label">店舗名</div><b>${esc(completed.customer)}</b><div class="label">注文日</div><b>${fmt(completed.orderedAt)}</b><div class="label">注文商品</div>${completed.detail.map(x=>`<div class="line"><span>${esc(x.name)}</span><b>${x.qty}ケース</b></div>`).join("")}<div class="row" style="margin-top:14px"><span>合計</span><b>${completed.count}ケース</b></div><div class="label">納品予定日</div><div class="blue">${fmt(completed.delivery)}</div></div><button class="print no-print" onclick="window.print()">注文控えを印刷・PDF保存</button><button class="back no-print" onclick="completed=null;render()">注文画面に戻る</button></div></div></div>`;return}
+ const c=total();document.getElementById("app").innerHTML=`<div class="wrap"><div class="head"><div class="icon">🛒</div><div><h1 style="margin:0">オンライン注文</h1><div>ケース数を入力して注文</div></div></div><div class="card delivery"><b>ご注文時点の納品予定日</b><div style="font-size:21px;font-weight:700">${fmt(delivery)}</div><small>注文日は数えず、土日祝日を除く中2営業日</small></div><div class="card"><b>店舗名</b><select id="store"><option value="">店舗を選択してください</option>${stores.map(s=>`<option value="${esc(s)}" ${s===customer?"selected":""}>${esc(s)}</option>`).join("")}</select></div><div class="card"><h2>商品を選ぶ</h2>${names.map((n,i)=>`<div class="product"><div>${esc(n)}</div><div class="controls"><button onclick="change(${i},-1)">−</button><div class="qty">${qty[i]||0}</div><button class="plus" onclick="change(${i},1)">＋</button></div></div>`).join("")}<div class="card sticky"><div class="row"><span>注文ケース数</span><b>${c}ケース</b></div>${c<20?`<div class="red">20ケース以上から注文できます（あと${20-c}ケース）</div>`:""}<button id="sendBtn" class="send" ${!customer||c<20||sending?"disabled":""} onclick="showConfirm()">注文内容を確認</button></div></div></div>`;
  document.getElementById("store").onchange=e=>{customer=e.target.value;render()}
 }
 function change(i,d){qty[i]=Math.max(0,(qty[i]||0)+d);render()}
-function submitOrder(){const c=total();if(!customer||c<20||sending)return;sending=true;render();const order={customer,count:c,orderedAt:new Date(),delivery:new Date(delivery),detail:names.map((name,i)=>({name,qty:qty[i]||0})).filter(x=>x.qty>0)};completed=order;Object.keys(qty).forEach(k=>delete qty[k]);sending=false;openOrderMail(order);setTimeout(render,500)}
+function showConfirm(){const c=total();if(!customer||c<20)return;sendError="";confirming={customer,count:c,orderedAt:new Date(),delivery:new Date(delivery),detail:names.map((name,i)=>({name,qty:qty[i]||0})).filter(x=>x.qty>0)};render()}
+async function submitConfirmedOrder(){
+  if(!confirming||sending)return;
+  sending=true;sendError="";render();
+  const order=confirming;
+  const fd=new FormData();
+  fd.append("fi-text-store",order.customer);
+  fd.append("fi-date-orderDate",key(order.orderedAt));
+  fd.append("fi-date-deliveryDate",key(order.delivery));
+  fd.append("fi-text-orderDetails",order.detail.map(x=>`${x.name}：${x.qty}ケース`).join("\n"));
+  fd.append("fi-number-totalCases",String(order.count));
+  try{
+    const res=await fetch(`https://forminit.com/f/${FORM_ID}`,{method:"POST",body:fd,headers:{Accept:"application/json"}});
+    if(!res.ok) throw new Error(`送信エラー（${res.status}）`);
+    completed=order;confirming=null;Object.keys(qty).forEach(k=>delete qty[k]);
+  }catch(e){sendError="注文を送信できませんでした。通信状態またはForminit設定を確認して、もう一度お試しください。";}
+  sending=false;render();
+}
 render();
 </script>
 </body>
